@@ -1,0 +1,10 @@
+C:\Users\nicho\DojoAssignments\netCore\Human\bin\Debug\netcoreapp2.0\Human.deps.json
+C:\Users\nicho\DojoAssignments\netCore\Human\bin\Debug\netcoreapp2.0\Human.runtimeconfig.json
+C:\Users\nicho\DojoAssignments\netCore\Human\bin\Debug\netcoreapp2.0\Human.runtimeconfig.dev.json
+C:\Users\nicho\DojoAssignments\netCore\Human\bin\Debug\netcoreapp2.0\Human.dll
+C:\Users\nicho\DojoAssignments\netCore\Human\bin\Debug\netcoreapp2.0\Human.pdb
+C:\Users\nicho\DojoAssignments\netCore\Human\obj\Debug\netcoreapp2.0\Human.csproj.CoreCompileInputs.cache
+C:\Users\nicho\DojoAssignments\netCore\Human\obj\Debug\netcoreapp2.0\Human.AssemblyInfoInputs.cache
+C:\Users\nicho\DojoAssignments\netCore\Human\obj\Debug\netcoreapp2.0\Human.AssemblyInfo.cs
+C:\Users\nicho\DojoAssignments\netCore\Human\obj\Debug\netcoreapp2.0\Human.dll
+C:\Users\nicho\DojoAssignments\netCore\Human\obj\Debug\netcoreapp2.0\Human.pdb
