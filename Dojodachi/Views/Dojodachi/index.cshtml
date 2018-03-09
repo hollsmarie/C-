@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    
+
+        <h1>Puppodachi!!!</h1>
+        <h4> How to play:</h4>
+        <h5> If your puppodachi gets above 100 in energy, fullness, and happiness, you win. If your puppodachi
+        goes to 0 in fullness or happiness, he or she dies and his or her soul will burn in hell forever.</h5>
+    
+    <h4>Fullness: @TempData["full"] |  Happiness: @TempData["happy"] | Meals: @TempData["meals"] | Energy: @TempData["energy"]  </h4>
+    <br>
+    <br>
+    @{
+        @if ((int)@TempData["full"] <= 0 || (int)@TempData["happy"] <= 0)   //c# code. check if int of full less than zero, happy too 
+        {
+            <img src="~/images/skull.png" alt="skull">
+        }
+        else
+        {
+           <img src="~/images/akita.jpg" alt="akita"> 
+        }
+    }
+    <br>
+    <br>
+    
+    @{ 
+        @if ((int)@TempData["full"] > 0 && (int)@TempData["happy"] > 0)
+        {
+        <form action="feed" method="POST">
+        <input type="submit" name="feed" value="feed">
+        <label for="feed">Gain 5-10 fullness but lose a meal.</label>
+        </form>
+        <br>
+
+        <form action="play" method="POST">
+        <input type="submit" name="play" value="play">
+        <label for="play">Gain 5-10 happiness but lose 5 energy.</label>
+        </form>
+        <br>
+
+        <form action="work" method="POST">
+        <input type="submit" name="work" value="work">
+        <label for="work">Gain 1-3 meals but lose 5 energy.</label>
+        </form>
+        <br>
+
+        <form action="sleep" method="POST">
+        <input type="submit" name="sleep" value="sleep">
+        <label for="sleep">Gain 15 energy but lose 5 happiness and 5 fulllness.</label>
+
+        </form>
+        <br>
+        }
+        @if ((int)@TempData["full"] <= 0 || (int)@TempData["happy"] <= 0)
+        {
+            <form action="restart" method="POST">
+            <input type="submit" name="restart" value="restart">
+            <label for="restart">Restart the game.</label>
+            </form>
+        }
+        
+    }
+
+    <h2>@TempData["Message"]</h2>
+    
+</body>
+</html>
