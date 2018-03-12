@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Here are the submitted quotes!</h1>
+    @{
+        foreach(var quote in ViewBag.Quotes) //cycle through quotes in viewbag.quotes
+        {
+            <p>@quote["name"]</p>
+            <p>@quote["quote"] at @quote["created_at"]</p>
+        }
+    
+    }
+
+    <form action="/">
+        <input type="submit" value="return to home page">
+    </form>
+</body>
+</html>
