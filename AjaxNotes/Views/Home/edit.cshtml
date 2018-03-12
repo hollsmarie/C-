@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Edit the note below</h1>
+
+<h3>@TempData["error"]</h3>
+
+<div id="editnotes">
+<form action="/update/@ViewBag.Note[0]["notesid"]" method="POST">
+    <label for="title">Title: </label>
+    <input type="text" name="title" value="@ViewBag.Note[0]["title"]" >
+    <br>
+    <br>
+    <label for="description">Description: </label>
+    <textarea name="description" cols="20" rows="5">@ViewBag.Note[0]["description"]</textarea>
+    <br>
+    <br>
+    <input type="submit" name="submit" value="submit">
+</form>
+</div>
+

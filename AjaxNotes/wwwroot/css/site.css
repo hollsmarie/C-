@@ -1,0 +1,21 @@
+/*Write all of your CSS here*/
+
+#addnotes {
+
+    display: inline-block;
+    margin: 10px;
+}
+
+#display {
+
+    text-align: center;
+    margin: 0px 0px 0px 100px;
+    vertical-align: top;
+
+    display: inline-block;
+}
+
+.boxes {
+    margin: 10px;
+    border: solid 1px black;
+}
