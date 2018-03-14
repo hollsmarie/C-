@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Register</h1>
+<a href="logback">Or click here if you're already a member</a>
+
+<h2>@ViewBag.email</h2>
+
+@model login.Models.User
+ 
+<form asp-controller="Login" asp-action="Register" method="post">
+    <span asp-validation-for="First"></span>     <!-- First is capital because it needs to match the model key -->  
+    <label asp-for="First">First Name: </label>
+    <input asp-for="First"/>
+    <br>
+
+    <span asp-validation-for="Last"></span>
+    <label asp-for="Last">Last Name: </label>
+    <input asp-for="Last"/>
+    <br>
+
+    <span asp-validation-for="Email"></span>
+    <label asp-for="Email">Email: </label>
+    <input asp-for="Email"/>
+    <br>
+
+    <span asp-validation-for="Password"></span>
+    <label asp-for="Password">Password: </label>
+    <input asp-for="Password"/>
+    <br>
+
+    <span asp-validation-for="Confirm"></span>
+    <label asp-for="Confirm">Confirm PW: </label>
+    <input asp-for="Confirm"/>
+    <br>
+
+    <input type="submit" name="submit" value="Create New User">
+</form>
+
+<br>
+<br>
+
+
