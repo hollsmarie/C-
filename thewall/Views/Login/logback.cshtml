@@ -1,0 +1,22 @@
+<h1>Log back in!</h1>
+
+<a href="/">not a user already?</a>
+<br>
+<br>
+
+@model thewall.Models.LogUser
+<form asp-action="Log" asp-controller="Login" method="post">
+    
+    <span asp-validation-for="Email"></span>
+    <label asp-for="Email">Email: </label>
+    <input asp-for="Email"/>
+    <br>
+
+    <span asp-validation-for="Password"></span>
+    <label asp-for="Password">Password: </label>
+    <input asp-for="Password"/>
+    <br>
+    <input type="submit" name="submit" value="Log In">
+
+
+</form>

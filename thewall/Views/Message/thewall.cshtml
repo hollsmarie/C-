@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>    
+    
+    <head>
+        <meta charset='utf-8'>
+        <title>Home</title>
+        <link rel="stylesheet" href="~/css/thewall.css"/>
+    </head>
+    <body>
+
+<h1>Welcome to THE WALL, @ViewBag.Name</h1>
+<a href="logout">Too afraid to scale the wall? Logout</a>
+
+@{<h2>@TempData["error"]</h2>}
+
+<form action="messagePost" method="POST">
+<label for="mpost">Post your message: </label>
+<textarea name="mpost" cols="50" rows="7"></textarea>
+<input type="submit" name="submit" value="submit">
+</form>
+
+<br>
+<br>
+<br>
+
+
+@{
+    @foreach(var message in ViewBag.messages)
+    {
+        <div class="message">
+        <h4>Original Post</h4>
+        <h5>@message["message"]</h5>
+        <h6>Posted by: @message["first"] @message["last"]</h6>
+        </div>
+        <br>
+            <div class="comment">
+            <h4>Comments on this post</h4>
+            @foreach(var comment in ViewBag.comments)
+            {
+                @if(comment["message_id"] == message["id"])
+                {
+                <h5>@comment["comment"]</h5>
+                <h6>Posted by: @message["first"] @message["last"]</h6>
+                }
+            }
+            </div>
+        <form action="commentPost" method="POST">
+        <label for="cpost">Comment: </label>
+        <textarea name="cpost" cols="35" rows="3"></textarea>
+        <input type="hidden" name="messageID" value="@message["id"]">
+        <input type="submit" name="submit" value="submit">
+        </form>
+    }
+}
+
+
+</body>
+</html>

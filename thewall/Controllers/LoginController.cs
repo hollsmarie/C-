@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using login.Models;
-using login;
+using thewall.Models;
+using thewall;
 
-namespace login.Controllers
+namespace thewall.Controllers
 {
     public class LoginController : Controller
     {
@@ -45,7 +45,7 @@ namespace login.Controllers
                     Database.Execute(query);
                     HttpContext.Session.SetString("username", newUser.First);
                     var sessionQ = Database.Query(emailCheck);  //rerun the query to see the newly created object by grabbing email
-                    int id = (int)sessionQ[0]["idusers"]; //grabbing the user id and setting to "id"
+                    int id = (int)sessionQ[0]["id"]; //grabbing the user id and setting to "id"
                     // Console.Write(id);
                     HttpContext.Session.SetInt32("userid",id);  //setting session id
 
@@ -96,7 +96,7 @@ namespace login.Controllers
                     }
                     else
                     {
-                        int id = (int)check[0]["idusers"]; //set new int variable id to the value of key "idusers" from db
+                        int id = (int)check[0]["id"]; //set new int variable id to the value of key "idusers" from db
                         HttpContext.Session.SetInt32("userid", id);  //set session id to the currrent user's id
                         string firstname = (check[0]["first"]).ToString();
                         HttpContext.Session.SetString("username", firstname);
