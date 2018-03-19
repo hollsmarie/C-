@@ -1,0 +1,60 @@
+
+
+<div id="wrapper">
+    <div id="leftside">
+    <h1>All Dojos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Dojo Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+
+    <div id="rightside">
+        <h1>Register A Dojo</h1>
+        @model lostWoods.Models.Trail
+ 
+    <form asp-controller="Dojo" asp-action="Add" method="post">
+        <span asp-validation-for="Name"></span>     <!-- First is capital because it needs to match the model key -->  
+        <label asp-for="Name">Dojo Name: </label>
+        <input asp-for="Name"/>
+        <br>
+
+        <span asp-validation-for="Location"></span>
+        <label asp-for="Location">Location: </label>
+        <input asp-for="Location"/>
+        <br>
+
+        <span asp-validation-for="Information"></span>
+        <label asp-for="Information">Additional Information: </label>
+        <input asp-for="Information"/>
+        <br>
+
+        <span asp-validation-for="Elevation"></span>
+        <label asp-for="Elevation">Elevation Change(km): </label>
+        <input asp-for="Elevation"/>
+        <br>
+
+        <span asp-validation-for="Longitude"></span>
+        <label asp-for="Longitude">Longitude: </label>
+        <input asp-for="Longitude"/>
+        <br>
+
+        <span asp-validation-for="Latitude"></span>
+        <label asp-for="Latitude">Latitude: </label>
+        <input asp-for="Latitude"/>
+        <br>
+
+        <input type="submit" name="submit" value="Create Dojo">
+     </form>
+
+        </div>
+</div>

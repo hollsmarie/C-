@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Write a new review:</h1>
+
+
+
+
+@model restauranter.Models.Review
+ 
+    <form asp-controller="Review" asp-action="Add" method="post">
+        <span asp-validation-for="ReviewName"></span>     <!-- First is capital because it needs to match the model key -->  
+        <label asp-for="ReviewName">Reviewer Name: </label>
+        <input asp-for="ReviewName" class="form_control"/>
+        <br>
+
+        <span asp-validation-for="RestName"></span>
+        <label asp-for="RestName">Restaurant Name: </label>
+        <input asp-for="RestName" class="form_control"/>
+        <br>
+
+        <span asp-validation-for="Comment"></span>
+        <label asp-for="Comment">Review: </label>
+        <input asp-for="Comment" class="form_control"/>
+        <br>
+
+        <span asp-validation-for="Date"></span>
+        <label asp-for="Date">Date: </label>
+        <input asp-for="Date" class="form_control"/>
+        <br>
+
+        <span asp-validation-for="Stars"></span>
+        <label asp-for="Stars">Stars: </label>
+        <input asp-for="Stars" min="0" max="5" class="form_control"/>
+        <br>
+
+        <input type="submit" name="submit" value="Submit Review">
+     </form>

@@ -1,0 +1,16 @@
+@{
+
+}
+<a href="/">Return to leave a review</a>
+
+@model restauranter.Models.Review
+
+
+@foreach (var review in ViewBag.Reviews)
+{
+
+<h2>Review for: @review.RestName</h2>
+<h4>Stars (0-5): @review.Stars</h4>
+<h5>by @review.ReviewName , review posted at @review.Date</h5>
+<h5>@review.Comment </h5>
+}
