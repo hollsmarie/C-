@@ -1,0 +1,17 @@
+
+<h2>Wedding for @ViewBag.ThisWedding.WedderOne and @ViewBag.ThisWedding.WedderTwo</h2>
+
+<a href="/dashboard">Not interested in this wedding? Go to dashboard.</a> 
+
+<h3>Date: @ViewBag.ThisWedding.WeddingDate</h3>
+
+<h4>Guests: </h4>
+
+<ul>
+    @foreach (var guest in @ViewBag.ThisWedding.RSVPs)
+    {
+    <li>@guest.User.First  @guest.User.Last</li>
+
+    }
+
+</ul>

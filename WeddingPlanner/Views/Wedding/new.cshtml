@@ -1,0 +1,38 @@
+<a href="dashboard">Back to dashboard</a>
+<br>
+<br>
+<a href="logout">Logout</a>
+<h1>Plan your wedding</h1>
+
+
+@model WeddingPlanner.Models.WeddingViewModel
+ 
+<form asp-controller="Wedding" asp-action="Add" method="post">
+    <span asp-validation-for="WedderOne"></span>     <!-- First is capital because it needs to match the model key -->  
+    <label asp-for="WedderOne">Wedder One: </label>
+    <input asp-for="WedderOne"/>
+    <br>
+
+    <span asp-validation-for="WedderTwo"></span>
+    <label asp-for="WedderTwo">Wedder Two: </label>
+    <input asp-for="WedderTwo"/>
+    <br>
+
+    <span asp-validation-for="WeddingDate"></span>
+    <label asp-for="WeddingDate">Wedding Date: </label>
+    <input type="date" asp-for="WeddingDate"/>
+    <br>
+
+    <span asp-validation-for="Address"></span>
+    <label asp-for="Address">Address: </label>
+    <input asp-for="Address"/>
+    <br>
+
+    <input type="submit" name="submit" value="Create">
+</form>
+
+<br>
+<br>
+
+
+

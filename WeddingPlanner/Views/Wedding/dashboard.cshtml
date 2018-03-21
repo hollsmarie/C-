@@ -1,0 +1,46 @@
+<h1>Welcome to the wedding planner</h1>
+
+<br>
+
+<a href="logout">logout</a>
+<br>
+<br>
+<a href="new">Add a wedding</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Wedding</th>
+            <th>Date</th>
+            <th>Guests</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            @foreach (var wedding in ViewBag.Weddings)
+            {
+        <tr>
+               <td><a asp-action="Show" asp-controller="Wedding" asp-route-WeddingId="@wedding["WeddingId"]">@wedding["WedderOne"] &amp; @wedding["WedderTwo"]</a></td>
+               <td>@wedding["WeddingDate"]</td>
+               <td>@wedding["RSVPs"]</td>
+               @if (wedding["Owned"])
+               {
+                   <td><a asp-action="Delete" asp-controller="Wedding" asp-route-WeddingId="@wedding["WeddingId"]">Delete</a></td>
+                
+               }
+               else if (wedding["RSVPED"])
+               {
+                   <td><a asp-action="UnRSVP" asp-controller="Wedding" asp-route-WeddingId="@wedding["WeddingId"]">RSVP No</a></td>
+               }
+
+               else
+               {
+                   <td><a asp-action="Reserve" asp-controller="Wedding" asp-route-WeddingId="@wedding["WeddingId"]">RSVP Yes</a></td>
+
+               }
+        </tr>
+            }
+        
+    </tbody>
+</table>
