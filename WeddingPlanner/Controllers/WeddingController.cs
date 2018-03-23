@@ -30,7 +30,7 @@ namespace WeddingPlanner.Controllers
 
             if (seshcheck != null)
             {
-                List<Wedding> allWeddings = _context.Weddings
+                List<Wedding> allWeddings = _context.Weddings  //create a list of all weddings 
                     .Include(wedding => wedding.User)
                     .Include(wedding => wedding.RSVPs)
                         .ThenInclude(RSVP =>RSVP.User).ToList();

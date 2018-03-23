@@ -1,0 +1,43 @@
+<a href="dashboard">Back to dashboard</a>
+<br>
+<br>
+<a href="logout">Logout</a>
+<h1>Plan your event</h1>
+
+
+@model events.Models.Event
+ 
+<form asp-controller="Event" asp-action="Add" method="post">
+    <span asp-validation-for="Host"></span>     <!-- First is capital because it needs to match the model key -->  
+    <label asp-for="Host">Host: </label>
+    <input asp-for="Host"/>
+    <br>
+
+    <span asp-validation-for="Title"></span>
+    <label asp-for="Title">Event Title: </label>
+    <input asp-for="Title"/>
+    <br>
+
+    <span asp-validation-for="Description"></span>
+    <label asp-for="Description">Event Description: </label>
+    <input asp-for="Description"/>
+    <br>
+
+    <span asp-validation-for="Date"></span>
+    <label asp-for="Date">Date: </label>
+    <input type="date" asp-for="Date"/>
+    <br>
+
+    <span asp-validation-for="Address"></span>
+    <label asp-for="Address">Address: </label>
+    <input asp-for="Address"/>
+    <br>
+
+    <input type="submit" name="submit" value="Create">
+</form>
+
+<br>
+<br>
+
+
+

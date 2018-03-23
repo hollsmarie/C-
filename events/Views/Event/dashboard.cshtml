@@ -1,0 +1,79 @@
+<h1>Welcome to the events dashboard</h1>
+
+<br>
+
+<a href="logout">logout</a>
+<br>
+<br>
+<a href="new">Add an event</a>
+<div class="container">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Host</th>
+            <th>Date</th>
+            <th>Guests</th>
+            <th>Likes</th>
+            <th>Respond</th>
+            <th>Opinion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var thing in ViewBag.Events)
+        {
+            <tr>
+            <td><a href="show/@thing.EventId">@thing.Title</a></td>
+            <td>@thing.Host</td>
+            <td>@thing.Date</td>
+            <td>@thing.RSVPS.Count</td>
+            <td>@thing.Likes.Count</td>
+            @if(thing.UserId == ViewBag.User.UserId)
+            {
+                <td><a href="/delete/@thing.EventId">Delete</a></td>
+            }
+            else
+            {
+                bool found = false;
+                bool love = false;
+                @foreach(var rsvp in thing.RSVPS)
+                {                    
+                    @if(rsvp.UserId == ViewBag.User.UserId)
+                    {
+                        found=true;
+                    }                    
+                }
+                @if(found ==true)
+                {
+                    <td><a href="/unrsvp/@thing.EventId">Un-RSVP</a></td>
+                }
+                else
+                {
+                    <td><a href="/rsvp/@thing.EventId">RSVP</a></td>
+                }
+
+                
+                @foreach(var like in thing.Likes)
+                {
+                    @if(like.UserId==ViewBag.User.UserId)  
+                    {
+                        love=true;
+                    }
+                }
+                    @if(love==true)
+                    {
+                        <td><a href="/unlike/@thing.EventId">Unlike</a></td>
+                    }
+                    else
+                    {
+                        <td><a href="/like/@thing.EventId">Like</a></td>
+                    }
+                }
+                        
+            </tr>
+            }
+             
+    </tbody>
+</table>
+
+</div>

@@ -1,0 +1,18 @@
+
+
+<h2>@ViewBag.ThisEvent.Title</h2>
+<a href="/dashboard">Not interested in attending? Return to dashboard.</a>
+<h3>Hosted by : @ViewBag.ThisEvent.Host</h3>
+<h3>Date and Time: @ViewBag.ThisEvent.Date</h3>
+<h3>Address : @ViewBag.ThisEvent.Address</h3>
+<h4>Description: @ViewBag.ThisEvent.Description</h4>
+
+<br>
+<h4>Attending guests:</h4>
+<ul>
+@foreach (var rsvp in ViewBag.ThisEvent.RSVPS)
+{
+    <li>@rsvp.User.First @rsvp.User.Last</li>
+}
+</ul>
+
